@@ -2,4 +2,4 @@
 
 Solutions to algorithmic problems:
 
-*  [Binary search](https://github.com/dizzarg/golang-playground/search)
+*  [Binary search](https://github.com/dizzarg/golang-playground/tree/master/search)
