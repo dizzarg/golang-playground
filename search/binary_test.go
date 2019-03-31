@@ -4,7 +4,7 @@ import "testing"
 
 var testArray = [9]int{10, 20, 30, 40, 50, 60, 70, 80, 90}
 
-func TestSearch_successFound(t *testing.T) {
+func TestBinarySearch_successFound(t *testing.T) {
 	expectedIndex := 3
 	actualIndex := BinarySearch(testArray[:], 40)
 	if actualIndex != expectedIndex {
@@ -12,7 +12,7 @@ func TestSearch_successFound(t *testing.T) {
 	}
 }
 
-func TestSearch_successNotFound(t *testing.T) {
+func TestBinarySearch_successNotFound(t *testing.T) {
 	expectedIndex := -1
 	actualIndex := BinarySearch(testArray[:], 200)
 	if actualIndex != expectedIndex {
@@ -20,7 +20,7 @@ func TestSearch_successNotFound(t *testing.T) {
 	}
 }
 
-func TestSearch_nothingFoundInEmptyArray(t *testing.T) {
+func TestBinarySearch_nothingFoundInEmptyArray(t *testing.T) {
 	testArray := [0]int{}
 	expectedIndex := -1
 	actualIndex := BinarySearch(testArray[:], 0)
