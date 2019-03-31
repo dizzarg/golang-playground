@@ -17,11 +17,11 @@ func TestQuickSort(t *testing.T) {
 	for i := 0; i < len(data); i++ {
 		data[i] = i ^ 0x2cc
 	}
-	origin_data := make([]int, 1<<10)
-	copy(origin_data, data)
+	originData := make([]int, 1<<10)
+	copy(originData, data)
 	QSort(data)
 	if isSorted(data) {
-		t.Errorf("sorted %v", origin_data)
+		t.Errorf("sorted %v", originData)
 		t.Errorf("   got %v", data)
 	}
 }
