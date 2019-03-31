@@ -1,11 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-	"time"
-)
-
 // sort array of integer values
 func QSort(arr []int) {
 	sort(arr, 0, len(arr)-1)
@@ -50,17 +44,4 @@ func partition(arr []int, lo int, hi int) int {
 	}
 	arr[lo], arr[j] = arr[j], arr[lo]
 	return j
-}
-
-func main() {
-	fmt.Println("Quick sort algorithm demo")
-	size := 20
-	arr := make([]int, size)
-	rand.Seed(time.Now().Unix())
-	for i := 0; i < size; i++ {
-		arr[i] = rand.Intn(100)
-	}
-	fmt.Printf("Sorting array \n%v ... \n", arr)
-	QSort(arr)
-	fmt.Printf("Sorted array \n%v\n", arr)
 }
