@@ -1,7 +1,7 @@
 # Binary search
 
 Iterative binary search implementation in array of integer values. 
-The function returns position of found number. If an number with that array is not found, the function should return -1.
+The function returns the position of found number. If a number with that array is not found, the function should return -1.
 
 Links:
 
