@@ -18,3 +18,15 @@ func BinarySearch(arr []int, el int) int {
 	}
 	return -1
 }
+
+// Iterative linear search implementation
+// returns position of found element
+// otherwise -1
+func LinearSearch(arr []int, el int) int {
+	for i, v := range arr {
+		if v == el {
+			return i
+		}
+	}
+	return -1
+}
