@@ -3,7 +3,7 @@ package main
 // Iterative binary search implementation
 // returns position of found element
 // otherwise -1
-func Search(arr []int, el int) int {
+func BinarySearch(arr []int, el int) int {
 	hi := len(arr) - 1
 	lo := 0
 	for lo <= hi {
