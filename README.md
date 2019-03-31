@@ -3,3 +3,4 @@
 Solutions to algorithmic problems:
 
 *  [Binary search](https://github.com/dizzarg/golang-playground/tree/master/search)
+*  [Quick sort](https://github.com/dizzarg/golang-playground/tree/master/sort)
