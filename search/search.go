@@ -1,4 +1,4 @@
-package main
+package search
 
 // Iterative binary search implementation
 // returns position of found element
