@@ -1,11 +1,27 @@
 package main
 
+import "testing"
+
 func isSorted(arr []int) bool {
 	prev := arr[0]
 	for i := 1; i < len(arr); i++ {
-		if arr[i] < prev {
+		if arr[i] > prev {
 			return false
 		}
 	}
 	return true
+}
+
+func TestQuickSort(t *testing.T) {
+	data := make([]int, 1<<10)
+	for i := 0; i < len(data); i++ {
+		data[i] = i ^ 0x2cc
+	}
+	origin_data := make([]int, 1<<10)
+	copy(origin_data, data)
+	QSort(data)
+	if isSorted(data) {
+		t.Errorf("sorted %v", origin_data)
+		t.Errorf("   got %v", data)
+	}
 }
