@@ -18,3 +18,4 @@ For example, the string aabcccccaaa would become a2blc5a3. If the "compressed"st
 original string, your method should return the original string. You can assume the string has only uppercase and lowercase letters (a - z).
 1. *Rotate Matrix*. Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees.
 1. *Zero Matrix*. It set zeros if entire row or column 0.
+1. *String Rotation*. Checks if one word is a substring of another.
