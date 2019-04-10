@@ -2,7 +2,7 @@
 
 Solutions for Cracking the Coding Interview in Golang.
 
-Problems:
+Chapter 1 problems:
 1. *Is unique*. Implement an algorithm to determine if a string has all unique characters.
 1. *Are permutation*. Given two strings, write a method to decide if one is a permutation of the other.
 1. *URLify*. Write a method to replace all spaces in a string with '%20: 
@@ -19,3 +19,6 @@ original string, your method should return the original string. You can assume t
 1. *Rotate Matrix*. Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees.
 1. *Zero Matrix*. It set zeros if entire row or column 0.
 1. *String Rotation*. Checks if one word is a substring of another.
+
+Chapter 2 problems:
+1. *Remove duplicates*. Remove duplicates from an unsorted linked list.

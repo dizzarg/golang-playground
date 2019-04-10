@@ -33,23 +33,28 @@ func (list *LinkedList) Append(value int) {
 
 func (list *LinkedList) Delete(index uint) error {
 	if node, err := list.GetNode(index); err == nil {
-		prev := node.prev
-		next := node.next
-		if prev != nil {
-			prev.next = next
-		} else {
-			list.head = next
-		}
-		if next != nil {
-			next.prev = prev
-		} else {
-			list.tail = prev
-		}
+		list.deleteNode(node)
 		node = nil
 		return nil
 	} else {
 		return err
 	}
+}
+
+func (list *LinkedList) deleteNode(node *Node) {
+	prev := node.prev
+	next := node.next
+	if prev != nil {
+		prev.next = next
+	} else {
+		list.head = next
+	}
+	if next != nil {
+		next.prev = prev
+	} else {
+		list.tail = prev
+	}
+	node = nil
 }
 
 func (list LinkedList) GetNode(index uint) (*Node, error) {
