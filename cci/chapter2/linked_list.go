@@ -6,14 +6,14 @@ import (
 )
 
 type LinkedList struct {
-	head *node
-	tail *node
+	head *Node
+	tail *Node
 }
 
-type node struct {
+type Node struct {
 	data int
-	next *node
-	prev *node
+	prev *Node
+	next *Node
 }
 
 func NewLinkedList() *LinkedList {
@@ -21,7 +21,7 @@ func NewLinkedList() *LinkedList {
 }
 
 func (list *LinkedList) Append(value int) {
-	newNode := &node{value, nil, nil}
+	newNode := &Node{value, nil, nil}
 	if list.head == nil {
 		list.head, list.tail = newNode, newNode
 	} else {
@@ -31,13 +31,34 @@ func (list *LinkedList) Append(value int) {
 	}
 }
 
-func (list *LinkedList) Get(index uint) (int, error) {
+func (list *LinkedList) Delete(index uint) error {
+	if node, err := list.GetNode(index); err == nil {
+		prev := node.prev
+		next := node.next
+		if prev != nil {
+			prev.next = next
+		} else {
+			list.head = next
+		}
+		if next != nil {
+			next.prev = prev
+		} else {
+			list.tail = prev
+		}
+		node = nil
+		return nil
+	} else {
+		return err
+	}
+}
+
+func (list LinkedList) GetNode(index uint) (*Node, error) {
 	if list.head == nil {
-		return 0, errors.New("list nil")
+		return nil, errors.New("list nil")
 	}
 	root := list.head
 	if index == 0 {
-		return root.data, nil
+		return root, nil
 	}
 	var count uint = 0
 	for root != list.tail {
@@ -45,21 +66,31 @@ func (list *LinkedList) Get(index uint) (int, error) {
 		count++
 		if index == count {
 			list.head = root.next
-			return root.data, nil
+			return root, nil
 		}
 	}
-	return 0, errors.New("Index out of range")
+	return nil, errors.New("Index out of range")
 }
 
-func (list *LinkedList) ForEach(cb func(int)) {
+func (list LinkedList) GetValue(index uint) (int, error) {
+	if node, err := list.GetNode(index); err == nil {
+		return node.data, nil
+	} else {
+		return -1, err
+	}
+}
+
+func (list LinkedList) ForEach(cb func(uint, *Node)) {
 	if list.head == nil {
 		return
 	}
+	var index uint = 0
 	root := list.head
-	cb(root.data)
+	cb(index, root)
 	for root != list.tail {
 		root = root.next
-		cb(root.data)
+		index++
+		cb(index, root)
 	}
 }
 
@@ -77,4 +108,8 @@ func (list *LinkedList) String() string {
 	content = content + fmt.Sprint(root.data)
 	footer := fmt.Sprint("]")
 	return head + content + footer
+}
+
+func (node *Node) String() string {
+	return fmt.Sprintf("%p -> (%d, %p)-> %p", node.prev, node.data, node, node.next)
 }
