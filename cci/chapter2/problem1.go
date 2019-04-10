@@ -1,7 +1,9 @@
 package chapter2
 
 // remove duplicates from linked list
-func (list *LinkedList) RemoveDuplicates() {
+// uses hash map for buffered element
+// O(n) complexity
+func (list *LinkedList) RemoveDuplicates1() {
 	if list.head == nil {
 		return
 	}
@@ -14,5 +16,24 @@ func (list *LinkedList) RemoveDuplicates() {
 		seen[root.data]++
 		root = root.next
 	}
+}
 
+// remove duplicates from linked list
+// uses two link and two loop
+// O(n^2) complexity
+func (list *LinkedList) RemoveDuplicates2() {
+	if list.head == nil {
+		return
+	}
+	current := list.head
+	for current != list.tail {
+		runner := current.next
+		for runner != list.tail {
+			if runner.data == current.data {
+				list.deleteNode(runner)
+			}
+			runner = runner.next
+		}
+		current = current.next
+	}
 }
