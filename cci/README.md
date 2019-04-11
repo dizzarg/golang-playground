@@ -22,3 +22,4 @@ original string, your method should return the original string. You can assume t
 
 Chapter 2 problems:
 1. *Remove duplicates*. Remove duplicates from an unsorted linked list.
+1. *Return Kth to Last*. Find the kth to last element of a linked list.
