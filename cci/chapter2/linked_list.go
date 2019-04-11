@@ -20,6 +20,14 @@ func EmptyList() *LinkedList {
 	return &LinkedList{nil, nil}
 }
 
+func NewList(arr []int) *LinkedList {
+	list := &LinkedList{nil, nil}
+	for _, v := range arr {
+		list.Append(v)
+	}
+	return list
+}
+
 func (list *LinkedList) Append(value int) {
 	newNode := &Node{value, nil, nil}
 	if list.head == nil {
