@@ -3,7 +3,7 @@ package chapter2
 import "testing"
 
 func TestNewLinkedList(t *testing.T) {
-	list := NewLinkedList()
+	list := EmptyList()
 	if list.head != nil {
 		t.Fatalf("Head must be nil. Actual: %v\n", list.head)
 	}
@@ -13,7 +13,7 @@ func TestNewLinkedList(t *testing.T) {
 }
 
 func TestLinkedList_Append(t *testing.T) {
-	list := NewLinkedList()
+	list := EmptyList()
 	expectedData := 1
 	list.Append(expectedData)
 	if list.head == nil {
@@ -31,7 +31,7 @@ func TestLinkedList_Append(t *testing.T) {
 }
 
 func TestLinkedList_ForEach(t *testing.T) {
-	list := NewLinkedList()
+	list := EmptyList()
 	prev := 0
 	expectElements := 10
 	for i := prev + 1; i <= prev+expectElements; i++ {
@@ -51,7 +51,7 @@ func TestLinkedList_ForEach(t *testing.T) {
 
 func TestLinkedList_DeleteNode_RemoveCenter(t *testing.T) {
 
-	list := NewLinkedList()
+	list := EmptyList()
 	prev := 0
 	expectElements := 10
 	for i := prev + 1; i <= prev+expectElements; i++ {
@@ -75,7 +75,7 @@ func TestLinkedList_DeleteNode_RemoveCenter(t *testing.T) {
 
 func TestLinkedList_DeleteNode_RemoveFirst(t *testing.T) {
 
-	list := NewLinkedList()
+	list := EmptyList()
 	prev := 0
 	expectElements := 10
 	for i := prev + 1; i <= prev+expectElements; i++ {
@@ -99,7 +99,7 @@ func TestLinkedList_DeleteNode_RemoveFirst(t *testing.T) {
 
 func TestLinkedList_DeleteNode_RemoveLast(t *testing.T) {
 
-	list := NewLinkedList()
+	list := EmptyList()
 	prev := 0
 	expectElements := 10
 	for i := prev + 1; i <= prev+expectElements; i++ {

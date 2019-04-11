@@ -16,7 +16,7 @@ type Node struct {
 	next *Node
 }
 
-func NewLinkedList() *LinkedList {
+func EmptyList() *LinkedList {
 	return &LinkedList{nil, nil}
 }
 
