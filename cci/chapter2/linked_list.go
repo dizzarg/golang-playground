@@ -107,6 +107,22 @@ func (list LinkedList) ForEach(cb func(uint, *Node)) {
 	}
 }
 
+// Mostly used for testing.
+func (list *LinkedList) Slice() []int {
+	if list.head == nil {
+		return nil
+	}
+	var slice []int
+	root := list.head
+	i := 0
+	for root != nil {
+		slice = append(slice, root.data)
+		root = root.next
+		i++
+	}
+	return slice
+}
+
 func (list *LinkedList) String() string {
 	if list.head == nil {
 		return "[]"
